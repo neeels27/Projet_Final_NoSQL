@@ -1,0 +1,170 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body{
+	height: 110%;
+}
+body{font-family:arial;margin: 0;display: flex; flex-direction: column;
+	justify-content: space-between;}
+	main{
+		flex-grow: 1;
+		background-color:#FFDB4D;
+		padding-top: 8px;
+	}
+	a{
+		text-decoration: none;
+	}
+	header li{list-style-type:none}
+
+	header{background:#FFDB4D;width: 100%;}
+
+	.container{
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+	p{font-style: ;font-size: 25px,}
+
+	ul{ display: flex;
+		justify-content: space-around;
+		padding: 0;
+		margin: 0;
+	}
+	.www{
+		display: flex;
+		justify-content: center;
+	}
+	.menu{
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.menu-list{
+		width:100%;
+		display: flex;
+		justify-content: space-around;
+		font-size: 25px;
+	}
+	.a{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.b{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	} 
+
+	.c{margin-left: 45%;
+	}
+
+	.d{margin-left: 0%}
+
+	.e{margin-left: 12px;
+		margin-right: auto;
+		width: 30em } 
+		.m{font-family:arial;color:#F70000}
+
+		.card-img-top{
+			width: 800px;
+
+		}
+		.card-body{
+			text-align:center;
+		}
+
+		.r{display: flex;
+			justify-content: center;
+		}
+
+
+		.form-group{margin-left: 30%}
+
+		.login{font-family:Impact;font-size: 250%;margin-left: 45%}
+
+		.signup{margin-left: 50%}
+
+		.signup2{font-family:Impact;font-size: 250%;margin-left: 45%}
+
+		.slogan{font-family:  "Ink Free";font-size: 130%}
+
+		.thisisus{font-family: Arial ;font-size: 300%;margin-left: 20%}
+
+		.logostory{font-family: Arial;font-size: 150%;margin-left: 60%}
+
+		.homeslogan{font-family: "Trebuchet MS"}
+
+		.comingsoon{margin-left: 40%}
+
+		.Address{font-family: Arial;font-size: 150%;margin-left: 30%}
+
+		.Phonenumber{font-family: Arial;font-size: 150%;margin-left: 40%}
+
+		.suri{font-family: "Segoe Print";color:#F70000}
+
+		.carousel-inner{margin-left:45%;
+			margin-right: auto;
+			height: 100%;
+			width: 20em}
+
+			.app{font-family:Arial;font-size: 250%;margin-left: 40%}
+
+			.link{margin-left: 50%}
+
+			.carousel-item{height: 800px}
+
+			.BreakFast{margin-left: 5%;margin-top: 5%;}
+
+			.map{margin-left: 35%;}
+
+		main{height: 400px}   
+
+			footer{background:#000000;width: 100%;}
+
+
+section {display: inline-flex;
+margin-left: 2.5%;
+margin-right: 2.5%;}
