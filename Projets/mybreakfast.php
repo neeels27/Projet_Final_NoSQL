@@ -59,68 +59,23 @@
 			
 		</header>
 		<main>
-			<?php
-                try
-				{
+		
+		<?php
+			// connexion
+			$mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+			
+			$filter = ['datasetid' => 'production-de-raisin-production-de-vins-jus-et-mouts'];
+			
+			$query = new MongoDB\Driver\Query($filter);
+			$rows = $mongo->executeQuery('Vin.production', $query); // $mongo contains the connection object to MongoDB
+			foreach($rows as $r)
+			{		?>
+				<p><?php var_dump($r);?></p><?php
+			}
+			
+		
+		?>
 
-					$bdd = new PDO('mysql:host=localhost;dbname=nutrition', 'root', '');
-
-				}
-
-        catch(Exception $e)
-
-        {
-
-            die('Erreur : '.$e->getMessage());
-
-        }
-			$reponse = $bdd->query('SELECT * FROM menu');
-
-
-            while($donnees = $reponse->fetch())
-            {
-            ?>
-
-
-            <table border="1" >
-                <tr>
-                    <td><?php echo $donnees['date']?></td>
-					<td> <?php echo $donnees['secteur']?></td>
-					<td> <?php echo $donnees['type']?></td>
-					<td> <?php echo $donnees['ouverture']?></td>
-					<td> <?php echo $donnees['code_entree']?></td>
-					<td> <?php echo $donnees['entree']?></td>
-					<td> <?php echo $donnees['code_plat']?></td>
-					<td> <?php echo $donnees['plat']?></td>
-					<td> <?php echo $donnees['code_legumes']?></td>
-					<td> <?php echo $donnees['legumes']?></td>
-					<td> <?php echo $donnees['code_laitage']?></td>
-					<td> <?php echo $donnees['laitage']?></td>
-					<td> <?php echo $donnees['code_dessert']?></td>
-					<td> <?php echo $donnees['dessert']?></td>
-					<td> <?php echo $donnees['code_gouter']?></td>
-					<td> <?php echo $donnees['gouter']?></td>
-                </tr>
-
-
-            </table>
-			    <style>
-					table, td, tr
-					{
-						table-layout: fixed;
-						width: 150px;
-						padding: 10px;
-						border: 1px solid black;
-						border-collapse: collapse;
-					}
-				</style>
-            <?php
-            }
-            $reponse->closeCursor();
-
-            ?>
-			<section class="www">
-			</section>
 
 <br>
 
