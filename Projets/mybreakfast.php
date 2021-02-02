@@ -59,22 +59,45 @@
 			
 		</header>
 		<main>
-		
-		<?php
+			<select>
+				<optgroup label="Département">
+				</optgroup>
+			</select>
+			<select>
+				<option>Produit</option>
+			</select>
+			<select>
+				<option>Production de vins</option>
+			</select>
+			<select>
+				<option>Production de vins rouges et roses</option>
+			</select>
+			<select>
+				<option>Production de vins blancs</option>
+			</select>
+			<select>
+				<option>Thème</option>
+			</select>
+			<!--<php
+			/*$mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+					
+					$filter = ['fields.departement' => $departement]
+
+					var_dump($filter);
+				?>
+			<php
 			// connexion
 			$mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 			
 			$filter = ['datasetid' => 'production-de-raisin-production-de-vins-jus-et-mouts'];
-			
 			$query = new MongoDB\Driver\Query($filter);
 			$rows = $mongo->executeQuery('Vin.production', $query); // $mongo contains the connection object to MongoDB
 			foreach($rows as $r)
 			{		?>
-				<p><?php var_dump($r);?></p><?php
+				<p><php var_dump($r);?></p><php
 			}
-			
 		
-		?>
+			?>*/
 
 
 <br>
