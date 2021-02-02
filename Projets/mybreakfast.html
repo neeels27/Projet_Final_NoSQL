@@ -60,15 +60,8 @@
 		</header>
 		<main>
 			<?php
-           			$servername = 'localhost';
-            			$username = 'root';
-            			$password = 'root';
-				$conn = new mysqli($servername, $username, $password);
-				if($conn->connect_error)
-				{
-					die('Erreur : ' .$conn->connect_error);
-				}
-				    echo 'Connexion réussie';
+			$bdd = new PDO('mysql:host=localhost:888;dbname=nutrition;charset=utf8', 'root', 'root');
+			$reponse = $bdd->query('SELECT * FROM MENU');
 			?>
 			<section class="www">
 			</section>
