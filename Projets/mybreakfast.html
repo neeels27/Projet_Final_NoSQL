@@ -59,25 +59,16 @@
 			
 		</header>
 		<main>
-			<?PHP
-				function read($csv)
+			<?php
+           			$servername = 'localhost';
+            			$username = 'root';
+            			$password = 'root';
+				$conn = new mysqli($servername, $username, $password);
+				if($conn->connect_error)
 				{
-				    $file = fopen($csv, 'r');
-				    while (!feof($file) ) 
-				    {
-					$line[] = fgetcsv($file, 1024);
-				    }
-				    fclose($file);
-				    return $line;
+					die('Erreur : ' .$conn->connect_error);
 				}
-
-				// Définir le chemin d'accès au fichier CSV
-				$csv = 'fr.openfoodfacts.org.products.csv';
-
-				$csv = read($csv);
-				echo '<pre>';
-				print_r($csv);
-				echo '</pre>';
+				    echo 'Connexion réussie';
 			?>
 			<section class="www">
 			</section>
