@@ -36,6 +36,32 @@
   </style>
 
 </head>
+<?php
+    if(isset($_GET['action'])=='test') 
+	{
+					$val = $_POST['filtrage'];
+					$text = "";
+					switch($val)
+					{
+						case "departement":
+							$text = "fields.departement";
+							break;
+						
+						case "produit":
+							$text = "fields.produit";
+							break;
+						
+						case "theme":
+							$text = "fields.theme";
+							break;
+						
+						case "annee":
+							$text = "fields.annee";
+							break;
+					}
+    }
+	
+?>
 <body>
 
 	<header>
@@ -59,45 +85,71 @@
 			
 		</header>
 		<main>
-			<select>
-				<optgroup label="Département">
-				</optgroup>
-			</select>
-			<select>
-				<option>Produit</option>
-			</select>
-			<select>
-				<option>Production de vins</option>
-			</select>
-			<select>
-				<option>Production de vins rouges et roses</option>
-			</select>
-			<select>
-				<option>Production de vins blancs</option>
-			</select>
-			<select>
-				<option>Thème</option>
-			</select>
-			<!--<php
-			/*$mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-					
-					$filter = ['fields.departement' => $departement]
-
-					var_dump($filter);
-				?>
-			<php
-			// connexion
+		<?php 
 			$mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-			
-			$filter = ['datasetid' => 'production-de-raisin-production-de-vins-jus-et-mouts'];
-			$query = new MongoDB\Driver\Query($filter);
+			$filter =[];
+			// new MongoDB\Driver\Command(['fields' => 1]);
+			$options = ['sort' => [$text => 1]]; 
+			$query = new MongoDB\Driver\Query($filter, $options);
 			$rows = $mongo->executeQuery('Vin.production', $query); // $mongo contains the connection object to MongoDB
+			$tab[] = array();
 			foreach($rows as $r)
-			{		?>
-				<p><php var_dump($r);?></p><php
+			{
+				array_push($tab, $r);
 			}
-		
-			?>*/-->
+			
+		?>
+			<form method="post" action="?action=test">
+				<select name = "filtrage">
+					<option value = "departement">Département</option>
+					<option value = "produit">Produit</option>
+					<option value = "theme">Thème</option>
+					<option value = "annee">Année</option>
+				</select>
+				<button type=submit>Submit</button>
+			</form>
+			<table>
+				<thead>
+					<tr>
+						<td>Infos</td>
+						<td>Département</td>
+						<td>Produit</td>
+						<td>Thème</td>
+						<td>Année</td>
+					</tr>
+				</thead>
+					<?php
+						foreach($tab as $r)
+						{
+							$ide = $r->recordid;
+							if($r)
+							{
+								try
+								{
+									?>
+									<form method="post" action = "test.php">
+										<tr>
+											<td>
+												<button name="id" value="<?php echo  $ide ?>">Voir</button>
+												<input type="submit" style="display:none">
+											</td>
+											<td> <?php echo $r->fields->departement;?></td>
+											<td> <?php echo $r->fields->produit;?></td>
+											<td> <?php echo $r->fields->theme;?></td>
+											<td> <?php echo $r->fields->annee;?></td>
+										</tr>
+									</form><?php
+									}
+								catch(Exception $e)
+								{
+									var_dump($e);
+								}
+							}
+						}
+					?>
+				
+			</table>
+			
 
 
 <br>
